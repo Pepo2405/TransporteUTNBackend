@@ -51,7 +51,7 @@ app.use(session({
 
   app.use(fileUpload({
     useTempFiles: true,
-    tempFileDir:'/temp/'
+    tempFileDir:'/tmp/'
   }));
 
 app.use('/', indexRouter);
