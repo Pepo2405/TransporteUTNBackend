@@ -1,0 +1,24 @@
+header {
+    background-color: #151E3F;
+    padding: 16px 0;
+    width: 100%;
+}
+header h1{
+    color:white;
+    font-size: 40px;
+    font-weight: 100;
+    font-style: italic;
+    display: inline-block;
+    position: relative;
+    bottom: 35px;
+    margin-left: 10px;
+}
+#logo{
+    transition: all 0.3s ease;
+    border-radius: 50%;
+
+}
+#logo:hover{
+    box-shadow: 0 0.1rem 0.4rem rgba(255, 255, 255, 0.3) ;
+
+}

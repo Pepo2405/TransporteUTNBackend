@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/stylesheets/noticias.css" />
+
+<h1>{{title}}</h1>
+<p>Pagina de{{title}}</p>
+<div class="container">
+{{#each novedades}}
+  <div class="news-container" style="">
+    {{{image}}}
+    <div class='col2'>
+      <h2>{{titulo}}</h2>
+      <h3>{{subtitulo}}</h3>
+      <p>{{cuerpo}}</p>
+    </div>
+  </div>
+{{/each}}
+</div>

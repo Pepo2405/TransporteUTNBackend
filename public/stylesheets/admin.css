@@ -1,0 +1,116 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html{
+  height: 100%;
+}
+.grid-container >*{
+  box-shadow: -1px 1px 7px 0px rgba(0,0,0,0.45);
+  padding: 10px;
+  text-align: center;
+}
+body {
+  font-size: 1.3rem;
+  min-height: 100%;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+  color: black;
+  background-color: #ffffff;
+}
+h2 {
+  color: cornflowerblue;
+  font-weight: 400;
+}
+
+footer {
+  background-color: #151e3f;
+  height: auto;
+  width: auto;
+  clear: both;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 50px 0;
+}
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  margin: 0;
+  background-color: #151e3f;
+  grid-area:header;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  padding: 16px 0;
+  width: 100%;
+  align-items: center;
+
+}
+header h1 {
+  color: white;
+  font-size: 40px;
+  font-weight: 100;
+  font-style: italic;
+  display: inline-block;
+  text-align: center;
+  margin-left: 10px;
+}
+.form-control{
+  margin: 5px;
+}
+
+
+#logo{
+  transition: all 0.3s ease;
+
+}
+#logo img:hover {
+  box-shadow: 0 0.1rem 0.4rem rgba(255, 255, 255, 0.3);
+}
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.botonera{
+  display: flex;
+  justify-content: space-evenly;
+}
+.grid-container{
+  display: grid;
+  grid-template:
+  "header header header" 120px
+  "main main main " auto
+  "footer footer footer" 100px /
+   200px  auto 200px;
+}
+.header{
+  grid-area:header;
+}
+.navbar{
+  grid-area: navbar;
+}
+.main{
+  grid-area: main;
+}
+
+.footer{
+  grid-area: footer;
+
+}
+.form-container, .flex{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+.form-container > *{
+  width: 100%;
+}
