@@ -1,14 +1,14 @@
 var express = require("express");
 var router = express.Router();
 
-var EmpleadosModel = require("../../models/EmpleadosModel");
+var empleadosModel = require("../../models/empleadosModel");
 var util = require("util");
 var cloudinary = require("cloudinary").v2;
 const uploader = util.promisify(cloudinary.uploader.upload);
 const destroy = util.promisify(cloudinary.uploader.destroy);
 
 router.get("/", async function (req, res, next) {
-  var empleados = await EmpleadosModel.getEmpleados();
+  var empleados = await empleadosModel.getEmpleados();
 
   empleados = empleados.map((empleado) => {
     if (empleado.img_id) {
@@ -53,7 +53,7 @@ router.get("/agregar", (req, res, next) => {
         req.body.subtitulo != "" &&
         req.body.cuerpo != ""
       ) {
-        await EmpleadosModel.insertEmpleado({
+        await empleadosModel.insertEmpleado({
           ...req.body, //Nombre cargo introduccion
           img_id,
         }); //Foto
@@ -80,7 +80,7 @@ router.get("/agregar", (req, res, next) => {
 
   router.get("/modificar/:id", async (req, res, next) => {
     let id = req.params.id;
-    let novedad = await EmpleadosModel.getEmpleadoById(id);
+    let novedad = await empleadosModel.getEmpleadoById(id);
     res.render("admin/modificarEmpleado", {
       layout: "admin/layout",
       novedad,
@@ -111,7 +111,7 @@ router.get("/agregar", (req, res, next) => {
         datos: req.body.datos,
         img_id,
       };
-      await EmpleadosModel.updateEmpleadoById(obj, req.body.id);
+      await empleadosModel.updateEmpleadoById(obj, req.body.id);
       res.redirect("/admin/empleados");
     } catch (error) {
       res.render("admin/modificar", {
@@ -128,8 +128,8 @@ router.get("/agregar", (req, res, next) => {
   //Eliminar empleados
   router.get("/eliminar/:id", async function (req, res, next) {
     var id = req.params.id;
-    let empleado = await EmpleadosModel.getEmpleadoById(id);
-    await EmpleadosModel.deleteEmpleadoById(id);
+    let empleado = await empleadosModel.getEmpleadoById(id);
+    await empleadosModel.deleteEmpleadoById(id);
     console.log("El empleado: "+empleado);
     console.log(empleado.img_id)
     if(empleado.img_id){await (destroy(empleado.img_id))};
