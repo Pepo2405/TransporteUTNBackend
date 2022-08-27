@@ -12,6 +12,8 @@ var cors = require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/admin/login');
+var adminMenuRouter = require('./routes/admin/adminMenu');
+var adminEmpleadosRouter = require('./routes/admin/empleados')
 var adminRouter = require('./routes/admin/novedades');
 var noticiasRouter= require('./routes/noticias');
 var etcRouter = require('./routes/etc');
@@ -58,6 +60,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admin/login', loginRouter);
 app.use('/admin/novedades',secured ,adminRouter);
+app.use('/admin/adminmenu',secured ,adminMenuRouter);
+app.use('/admin/empleados', secured, adminEmpleadosRouter)
 app.use('/noticias', noticiasRouter);
 app.use('/etc', etcRouter);
 app.use('/api', cors(), apiRouter); 

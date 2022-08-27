@@ -33,9 +33,11 @@ router.get("/", async function (req, res, next) {
 router.get("/agregar", (req, res, next) => {
   res.render("admin/agregar", {
     layout: "admin/layout",
+    tipo:"Novedad"
   }); //Cierra render
 }); //Cierra get
 
+//Eliminar Novedad
 router.get("/eliminar/:id", async function (req, res, next) {
   var id = req.params.id;
   let novedad = await novedadesModel.getNovedadesById(id);
@@ -44,8 +46,10 @@ router.get("/eliminar/:id", async function (req, res, next) {
   console.log(novedad.img_id)
   if(novedad.img_id){await (destroy(novedad.img_id))};
   res.redirect("/admin/novedades");
-
 });
+
+
+//Agregar Novedad
 
 router.post("/agregar", async function (req, res, next) {
   try {
@@ -83,6 +87,7 @@ router.post("/agregar", async function (req, res, next) {
   }
 });
 
+//Modificar Novedad
 router.get("/modificar/:id", async (req, res, next) => {
   let id = req.params.id;
   let novedad = await novedadesModel.getNovedadesById(id);
@@ -128,5 +133,6 @@ router.post("/modificar", async (req, res, next) => {
     console.log(error);
   }
 });
+// / cierro Modificar novedad
 
 module.exports = router;

@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h4>Modificar Empleado</h4>
+            <form method="post" action="/admin/empleados/modificar" enctype="multipart/form-data" class="form-container">
+                <input type="hidden" name="id" value="{{novedad.id}}">
+                {{!-- Aca se cambia el titulo --}}
+                <div class="form-group">
+                    <input type="text" placeholder="Nombre"
+                    value="{{empleado.nombre}}" class="form-control"
+                    name="nombre">
+                </div>
+                {{!-- Aca se cambia el subtitulo --}}
+                 <div class="form-group" style="margin-top: 10px">
+                    <input type="text" placeholder="Cargo"
+                    value="{{empleado.puesto}}" class="form-control"
+                    name="puesto">
+                </div>
+                {{!-- Aca se cambia la imagen --}}
+                <div class="form-group flex" >
+                    <p class="cuadro-imagen" style="width:100%;display:flex;">
+                        <label style="width: 100%;text-align:start">Foto:<input class="form-control" type="file" name="image" id="image"></label>
+                    </p>
+                </div>
+                {{!-- Aca se cambia el Cuerpo --}}
+                 <div class="form-group" >
+                    <input type="text" placeholder="Introduccion"
+                    value="{{novedad.cuerpo}}" class="form-control"
+                    name="datos">
+                </div>
+                <button type="submit" class="btn btn-primary">Modificar</button>
+            </form>
+        </div>
+        {{#if error}}
+        <h5>{{message}}</h5>
+        {{/if}}
+    </div>
+</div>

@@ -114,3 +114,19 @@ header h1 {
 .form-container > *{
   width: 100%;
 }
+.caja{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 300px;
+}
+.caja >*{
+  flex: 1;
+}
+
+.container-fluid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

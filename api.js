@@ -1,9 +1,12 @@
 var express = require("express");
 var router = express.Router();
 var novedadesModel = require("./models/novedadesModel");
+var EmpleadosModel = require("./models/empleadosModel"); 
 var cloudinary = require("cloudinary").v2;
 var nodemailer = require("nodemailer");
 
+
+//Novedades
 router.get("/novedades", async function (req, res, next) {
   var novedades = await novedadesModel.getNovedades();
 
@@ -23,6 +26,28 @@ router.get("/novedades", async function (req, res, next) {
   res.json(novedades);
 });
 
+//Listado de Empleados
+
+router.get("/empleados",async function (req,res,next){
+  var empleados = await EmpleadosModel.getEmpleados();
+  empleados = empleados.map((empleado)=>{
+    if(empleado.img_id){
+      const image = cloudinary.url(empleado.img_id);
+      console.log(image)
+      return {...empleado,image}
+    } else {
+
+      console.log("salio")
+      return {...empleado,image:""}
+    }
+  });
+
+  res.json(empleados)
+
+});
+
+
+//Envio de correo electrónico
 router.post("/contacto", async (req, res) => {
   const mail = {
     to: "ignacioniglesias@gmail.com",
