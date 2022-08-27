@@ -3,7 +3,7 @@
         <div class="col-6 offset-3">
             <h4>Modificar Empleado</h4>
             <form method="post" action="/admin/empleados/modificar" enctype="multipart/form-data" class="form-container">
-                <input type="hidden" name="id" value="{{novedad.id}}">
+                <input type="hidden" name="id" value="{{empleado.id}}">
                 {{!-- Aca se cambia el titulo --}}
                 <div class="form-group">
                     <input type="text" placeholder="Nombre"
@@ -25,7 +25,7 @@
                 {{!-- Aca se cambia el Cuerpo --}}
                  <div class="form-group" >
                     <input type="text" placeholder="Introduccion"
-                    value="{{novedad.cuerpo}}" class="form-control"
+                    value="{{empleado.datos}}" class="form-control"
                     name="datos">
                 </div>
                 <button type="submit" class="btn btn-primary">Modificar</button>

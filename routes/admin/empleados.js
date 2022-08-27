@@ -80,10 +80,10 @@ router.get("/agregar", (req, res, next) => {
 
   router.get("/modificar/:id", async (req, res, next) => {
     let id = req.params.id;
-    let novedad = await empleadosModel.getEmpleadoById(id);
+    let empleado = await empleadosModel.getEmpleadoById(id);
     res.render("admin/modificarEmpleado", {
       layout: "admin/layout",
-      novedad,
+      empleado
     });
   });
 

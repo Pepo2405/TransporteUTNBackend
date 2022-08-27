@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 24-08-2022 a las 03:15:40
+-- Tiempo de generación: 27-08-2022 a las 19:09:20
 -- Versión del servidor: 5.7.36
 -- Versión de PHP: 7.4.26
 
@@ -20,6 +20,32 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `experto_transporte`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `empleados`
+--
+
+DROP TABLE IF EXISTS `empleados`;
+CREATE TABLE IF NOT EXISTS `empleados` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(250) NOT NULL,
+  `puesto` varchar(250) NOT NULL,
+  `datos` varchar(250) NOT NULL,
+  `img_id` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `empleados`
+--
+
+INSERT INTO `empleados` (`id`, `nombre`, `puesto`, `datos`, `img_id`) VALUES
+(6, 'Micho Tito', 'Tecnico Programador', 'Bombero voluntarios, Heroe local', 'ihs1eagvkrdzecokphab'),
+(3, 'Elba Sura', 'Gerente General', 'Condecorado héroe de guerra', 'hhinhhz27vhdh4pnltia'),
+(4, 'Esteban Quito', 'Supervisor Superior', 'Luchador por los derechos de los niños', 'ewyifbrncd618ckuzuu0'),
+(5, 'Aitor Menta', 'Contador Publico', 'Contribuyente a la educacion', 'vevrhnyhvhokblffqbgn');
 
 -- --------------------------------------------------------
 
@@ -42,8 +68,8 @@ CREATE TABLE IF NOT EXISTS `novedades` (
 --
 
 INSERT INTO `novedades` (`id`, `titulo`, `subtitulo`, `cuerpo`, `img_id`) VALUES
-(9, 'Roblox????', 'Juego o Amenaza?', 'Estudios demuestran que niños con autismo juegan roblox, niños normales también e incluso adultos por alguna razon', 'm6yvimr2vnufp21ur25a'),
-(11, 'Optimus Primo', 'Podra ser?', 'Increible actor de las peliculas de transformers visto en la calle, o podria ser un simple camion... Nunca lo sabremos', 'qsshp1end4fxjkx5dacm'),
+(9, 'Roblox????', 'Juego o Amenaza?', 'Estudios demuestran que niños con autismo juegan roblox, niños normales también e incluso adultos por alguna razon', 'vcbrxxkonhvpyntkyj5e'),
+(11, 'Optimus Primo', 'Podra ser?', 'Increible actor de las peliculas de transformers visto en la calle, o podria ser un simple camion... Nunca lo sabremos', 'yb16jtwtdy3ihvf1lfmg'),
 (12, 'Pollo frito', 'Kfc una estafa', 'La  verdad terrible desilusión comer en KFC, me lo vendían como algo muy copado pero vino crudo como 3 veces y encima casero sale mejor', 'hzmnzrcvrwb9p0fyffq0'),
 (14, '¿Como se toma el mate?', 'Estudio cientifico revela cual es la forma en la que se toma el mate.', 'Estudios recientes han demostrado que el mate se toma caliente y AMARGO. Se comprobo que las personas que le ponen azucar son cobardes y los que le ponen endulcorante son traidores. Y podes ser cobarde, pero no traidor.', 'tcsainbx3sq561gzug61'),
 (16, 'Chipa = Superior?', 'Comer chipa te hace mejor persona?', 'Comer chipa te vuelve una forma de vida superior, capaz no solo de rivalizar  sino de aplastar provincianos', 'ss40iqkaxbokhtuy6iws'),
